@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>异或运算符</title>
+</head>
+<body>
+  <div id="eor"></div>
+  <script>
+    //相同为1，不同为0
+
+    //一种数是奇数，其它都是偶数
+    function num1(arr){
+      let eor = 0;
+      for (let i = 0; i < arr.length; i++) {
+        eor ^= arr[i]
+      }
+      console.log(eor);
+      return eor;
+    }
+    
+    document.getElementById("eor").innerText = num1([1,1,1,2,2,3,3,3,1])
+
+    function num2(arr){
+      let eor = 0;
+      for (let i = 0; i < arr.length; i++) {
+        eor ^= arr[i]
+      }
+      //eor = a^b
+      //eor !=0
+      // eor 必然有一个位置上是1
+      let rightOne = eor &(~eor+1); //(取反+1)
+      let onlyOne =0;
+      for (let j = 0; j < arr.length; j++) {
+        if((arr[j]&&rightOne)===0){
+          onlyOne ^= arr[j]
+        }
+      }
+      console.log(onlyOne,eor^onlyOne)
+    }
+    let a=5,b=7;
+    a = a^b;
+    b = a^b;
+    a = a^b;
+    console.log(a,b)
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插入排序</title>
+</head>
+<body>
+  
+  <script>
+    function insertionSort(arr){
+      if(arr===null||arr.length<2)return;
+      for (let i = 1; i < arr.length; i++) {
+        for (let j = i-1; j >=0&&arr[j]>arr[j+1]; j--) {
+          swap(arr,j,j+1)
+        }
+      }
+    }
+    function swap(arr,i,j){
+      arr[i] = arr[i]^arr[j]
+      arr[j] = arr[i]^arr[j]
+      arr[i] = arr[i]^arr[j]
+    }
+  </script>
+</body>
+</html>
